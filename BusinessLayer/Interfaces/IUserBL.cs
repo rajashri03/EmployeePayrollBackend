@@ -11,5 +11,6 @@ namespace BusinessLayer.Interfaces
         public UserEntity Registration(EmpRegistration user);
         public string Login(EmpLogin userlogin);
         public IEnumerable<UserEntity> GetAllEmployee();
+        public bool DeleteNote(long empid);
     }
 }

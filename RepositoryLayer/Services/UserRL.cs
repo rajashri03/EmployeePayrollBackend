@@ -121,5 +121,23 @@ namespace RepositoryLayer.Services
         {
             return context.Employees.ToList();
         }
+        public bool DeleteNote(long empid)
+        {
+            try
+            {
+                var result = this.context.Employees.FirstOrDefault(x => x.Id == empid);
+                context.Remove(result);
+                int deletednote = this.context.SaveChanges();
+                if (deletednote > 0)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

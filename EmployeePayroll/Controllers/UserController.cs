@@ -76,5 +76,24 @@ namespace EmployeePayroll.Controllers
                 throw;
             }
         }
+        [HttpDelete("Remove")]
+        public IActionResult DeleteNotes(long empid)
+        {
+            try
+            {
+                if (userBL.DeleteNote(empid))
+                {
+                    return this.Ok(new { Success = true, message = "Employee Deleted Successfully" });
+                }
+                else
+                {
+                    return this.Ok(new { Success = false, message = "Unable to delete note" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return this.BadRequest(new { Success = false, message = ex.Message });
+            }
+        }
     }
 }

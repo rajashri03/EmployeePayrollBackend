@@ -53,5 +53,16 @@ namespace BusinessLayer.Services
                 throw;
             }
         }
+        public bool DeleteNote(long empid)
+        {
+            try
+            {
+                return iuserrl.DeleteNote(empid);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
